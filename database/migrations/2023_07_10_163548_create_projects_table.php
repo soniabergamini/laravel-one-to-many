@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('link', 200);
             $table->string('stack', 150);
             $table->dateTime('date');
+            $table->foreignId('type_id')->constrained();
         });
     }
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -29,7 +30,8 @@ class ProjectController extends Controller
     public function create()
     {
         $allStack = Project::select('stack')->distinct()->get();
-        return view("admin.projects.create", compact('allStack'));
+        $types = Type::all();
+        return view("admin.projects.create", compact('allStack', 'types'));
     }
 
     /**
@@ -67,7 +69,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $allStack = Project::select('stack')->distinct()->get();
-        return view('admin.projects.edit', compact('project', 'allStack'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project', 'allStack', 'types'));
     }
 
     /**

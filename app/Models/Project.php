@@ -16,6 +16,12 @@ class Project extends Model
         'image',
         'link',
         'stack',
-        'date'
+        'date',
+        'type_id'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }
