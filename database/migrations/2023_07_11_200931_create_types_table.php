@@ -19,9 +19,6 @@ return new class extends Migration
             $table->string('name', 100)->unique();
         });
 
-        // Schema::table('projects', function (Blueprint $table) {
-        //     $table->foreignId('type_id')->nullable()->constrained();
-        // });
     }
 
     /**
@@ -33,9 +30,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('types');
 
-        // Schema::table('projects', function (Blueprint $table) {
-        //     $table->dropForeign('projects_type_id_foreign');
-        //     $table->dropColumn('type_id');
-        // });
     }
 };
