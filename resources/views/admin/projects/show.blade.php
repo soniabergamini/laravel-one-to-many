@@ -25,9 +25,6 @@
                     <p class="mb-2"><strong>Project Abstract: </strong><span class="text-body-secondary">{{ $project->description }}</span></p>
                     <p class="mb-2"><strong>Release Date:</strong><span class="text-body-secondary"> {{ Str::limit($project->date, 10, '') }}</span></p>
  		    	</div>
-                <div>
-                    @dump($project)
-                </div>
                 <div class="w-100 text-primary text-end py-2 border-top">
                     <a class="px-2 details border-end" href="{{ route('admin.projects.edit', $project) }}"><i class="fa-solid fa-pencil me-1"></i>EDIT</a>
                     <form action="{{ route('admin.projects.destroy', $project) }}" method="post" class="d-inline">
