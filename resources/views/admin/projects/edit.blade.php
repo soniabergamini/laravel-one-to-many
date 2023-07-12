@@ -69,6 +69,17 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
 
+            <label for="type_id">Type</label>
+            <select id="type_id" name="type_id" class="form-select mb-4" aria-label="Select Type">
+                <option value="" @selected(!old('type_id')) disabled hidden>Select Type</option>
+                @foreach ($types as $item)
+                    <option value="{{ $item->id }}" @selected(old('type_id')==$item->type)>{{ $item->name }}</option>
+                @endforeach
+            </select>
+            @error('type_id')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+
             <input type="submit" class="btn btn-primary form-control mb-4" value="ADD PROJECT">
 
         </form>

@@ -59,12 +59,23 @@
 
             <label for="stack">Stack</label>
             <select id="stack" name="stack" class="form-select mb-4" aria-label="Select">
-                <option value="" @selected(!old('stack')) disabled disabled>Select Stack</option>
+                <option value="" @selected(!old('stack')) disabled>Select Stack</option>
                 @foreach ($allStack as $item)
                     <option value="{{ $item->stack }}" @selected(old('stack')==$item->stack)>{{ $item->stack }}</option>
                 @endforeach
             </select>
             @error('stack')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+
+            <label for="type_id">Type</label>
+            <select id="type_id" name="type_id" class="form-select mb-4" aria-label="Select Type">
+                <option value="" @selected(!old('type_id')) disabled>Select Type</option>
+                @foreach ($types as $item)
+                    <option value="{{ $item->id }}" @selected(old('type_id')==$item->type)>{{ $item->name }}</option>
+                @endforeach
+            </select>
+            @error('type_id')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
 

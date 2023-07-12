@@ -21,9 +21,13 @@
  		    	<div class="d-flex flex-column justify-content-center ps-4 pe-5 my-4 w-50 border-start">
                     <p class="mb-2"><strong>Domain:</strong><span class="text-body-secondary"> {{ $project->domain }}</span></p>
                     <p class="mb-2"><strong>Stack:</strong><span class="text-body-secondary"> {{ $project->stack }}</span></p>
+                    <p class="mb-2"><strong>Type:</strong><span class="text-body-secondary"> {{ $project->type->name ?? 'N/A' }}</span></p>
                     <p class="mb-2"><strong>Project Abstract: </strong><span class="text-body-secondary">{{ $project->description }}</span></p>
                     <p class="mb-2"><strong>Release Date:</strong><span class="text-body-secondary"> {{ Str::limit($project->date, 10, '') }}</span></p>
  		    	</div>
+                <div>
+                    @dump($project)
+                </div>
                 <div class="w-100 text-primary text-end py-2 border-top">
                     <a class="px-2 details border-end" href="{{ route('admin.projects.edit', $project) }}"><i class="fa-solid fa-pencil me-1"></i>EDIT</a>
                     <form action="{{ route('admin.projects.destroy', $project) }}" method="post" class="d-inline">
