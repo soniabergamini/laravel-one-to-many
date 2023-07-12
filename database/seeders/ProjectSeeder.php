@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Models\Project;
+use App\Models\Type;
 use GuzzleHttp\Handler\Proxy;
 
 class ProjectSeeder extends Seeder
@@ -18,6 +19,7 @@ class ProjectSeeder extends Seeder
     public function run(Faker $faker)
     {
         $stacksData = config('store');
+        $types = Type::all(["id"]);
 
         for ($i=0; $i < 10; $i++) {
             $newProject = new Project();
@@ -37,6 +39,7 @@ class ProjectSeeder extends Seeder
 
             $newProject->stack = $stacks;
             $newProject->date = $faker->dateTimeBetween('-2 years');
+            $newProject->type_id = $types->random()->id;
             // $newProject->stack = $faker->randomElements(['HTML', 'CSS', 'JS', 'PHP', 'LARAVEL', 'VITE', 'VUEJS'], 4);
             $newProject->save();
         }

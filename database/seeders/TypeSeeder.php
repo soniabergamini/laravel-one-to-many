@@ -16,10 +16,18 @@ class TypeSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($x=0; $x < 10; $x++) {
-            $type = new Type();
-            $type->name = $faker->word();
-            $type->save();
+        $types = ["Social Network", "Fitness", "Design", "Mobile App", "Dynamic Web Application", "Animated Web Application", "Single-page Application", "Basic E-Commerce", "Advanced E-Commerce", "Other"];
+
+        foreach ($types as $item) {
+            $newType = new Type();
+            $newType->name = $item;
+            $newType->save();
         }
+
+        // for ($x=0; $x < 10; $x++) {
+        //     $type = new Type();
+        //     $type->name = $faker->word();
+        //     $type->save();
+        // }
     }
 }
